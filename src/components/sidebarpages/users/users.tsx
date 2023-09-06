@@ -1,18 +1,18 @@
 
 import React from 'react';
-import Sidebar from '../sidebar/sidebar';
-import Navbar from '../navbar/navbar';
+import Sidebar from '../../sidebar/sidebar';
+import Navbar from '../../navbar/navbar';
 
-const Page3: React.FC = () => {
+const Page2: React.FC = () => {
   return <>
   <div className='page-style'>
    <Sidebar />
    <div className='page-contents'>
    <Navbar />
-    <p> Page 1 Content</p>
+    <p> Page 2 Content</p>
     </div>
     </div>
     </>;
 };
 
-export default Page3;
+export default Page2;
