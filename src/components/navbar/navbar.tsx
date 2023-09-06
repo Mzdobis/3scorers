@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHref, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import score from '../../assets/3Score.png';
 import admins from '../../assets/admins.png';
 import logout from '../../assets/Logout.png';
