@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
     const [activeItem, setActiveItem] = useState('Overview');
     const navigate = useNavigate()
     const handleItemClick = (itemName:any) => {
-     itemName === 'page4' ? (navigate('/login'), localStorage.clear()) : navigate(`/${itemName}`);
+     itemName === 'logout' ? (navigate('/login'), localStorage.clear()) : navigate(`/${itemName}`);
      localStorage.setItem('page_name', itemName)
       setActiveItem(itemName);
     };
@@ -27,17 +27,17 @@ const Sidebar: React.FC = () => {
         <img src={overview}></img>
         Overview
         </li>
-        <li className='list-items' onClick={() => handleItemClick('page2')}>
+        <li className='list-items' onClick={() => handleItemClick('Users')}>
         {/* //   className={activeItem === 'page2' ? 'active-list-item' : ''} id='lists'> */}
         <img src={users}></img>
         Users
         </li>
-        <li className='list-items' onClick={() => handleItemClick('page3')}>
+        <li className='list-items' onClick={() => handleItemClick('Admins')}>
         {/* //   className={activeItem === 'page3' ? 'active-list-item' : ''} id='lists'> */}
         <img src={admins}></img>
         Admins
         </li>
-        <li className='list-items' onClick={() => handleItemClick('page4')}>
+        <li className='list-items' onClick={() => handleItemClick('logout')}>
         {/* //   className={activeItem === 'page4' ? 'active-list-item' : ''} id='lists'> */}
         <img src={logout}></img>
         Logout

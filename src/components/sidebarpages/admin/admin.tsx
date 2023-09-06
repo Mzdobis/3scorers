@@ -1,4 +1,4 @@
-import './users.css'
+import './admin.css'
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../sidebar/sidebar';
 import Navbar from '../../navbar/navbar';
@@ -8,8 +8,8 @@ import axios from "../../../api/httpService";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Page2: React.FC = () => {
-  const [userz, setUserz] = useState([]);
+const Admins: React.FC = () => {
+  const [admin, setAdmin] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const navigate = useNavigate()
   useEffect(() => {
@@ -17,7 +17,7 @@ const Page2: React.FC = () => {
       try {
         const response = await axios.get("/get-users");
         const userData = response.data.data
-        setUserz(userData)
+        setAdmin(userData)
         return response.data;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error:any) {
@@ -39,11 +39,11 @@ const Page2: React.FC = () => {
     getUsers();
   }, []);
   useEffect(() => {
-    const filteredUsers = userz.filter((user:any) => {
-      return user.role === 'user';
+    const filteredUsers = admin.filter((user:any) => {
+      return user.role === 'admin';
     });
     setFilteredUsers(filteredUsers);
-  }, [userz]);
+  }, [admin]);
   return <>
   <div className='page-style'>
    <Sidebar />
@@ -53,14 +53,14 @@ const Page2: React.FC = () => {
    <div className='page-items'>
    <Statusbar />
    <section className='users-section'>
-    <div className='heading'>Users' Names</div>
+    <div className='heading'>Admins' Names</div>
     <section className='scroll-section'>
-    {filteredUsers.map((users:any) => (
+    {filteredUsers.map((admin:any) => (
     <div className='can'>
       <div className='holder'>
         <div className='profile-container'>
         <img className='userImg' src={userImg}></img>
-        <div className='userName'>{users.firstName} {users.lastName}</div>
+        <div className='userName'>{admin.firstName} {admin.lastName}</div>
         </div>
         <div className='viewDetails'>View Details</div>
         </div>
@@ -75,4 +75,4 @@ const Page2: React.FC = () => {
     </>;
 };
 
-export default Page2;
+export default Admins;

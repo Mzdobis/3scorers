@@ -26,12 +26,15 @@ const Overview: React.FC = () => {
       } catch (error:any) {
         if (error.response) {
           navigate('/login')
+          localStorage.clear()
           toast.error(error.response.data.data);
         } else if (error.request) {
           navigate('/login')
+          localStorage.clear()
           toast.error('Network Error');
         } else {
           navigate('/login')
+          localStorage.clear()
           toast.error(error.message);
         }
       }
@@ -43,14 +46,12 @@ const Overview: React.FC = () => {
       return user.role === 'admin';
     });
     setFilteredAdmin(filteredAdmins);
-    console.log('admins', filteredAdmins)
   }, [userz]);
   useEffect(() => {
     const filteredUsers = userz.filter((user:any) => {
       return user.role === 'user';
     });
     setFilteredUsers(filteredUsers);
-    console.log('users', filteredUsers)
   }, [userz]);
   return( <>
   <div className='page-style'>

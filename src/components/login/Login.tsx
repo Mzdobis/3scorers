@@ -36,7 +36,7 @@ const Login: React.FC = () => {
       toast.success("login successful");
       localStorage.setItem('token', response.data.accessToken)
       localStorage.setItem('user', JSON.stringify(response.data.data))
-      localStorage.setItem('overview', 'Overview')
+      localStorage.setItem('page_name', 'Overview')
       navigate('/overview');
     } catch (error:any) {
       if (error.response) {
