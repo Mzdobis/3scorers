@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import score from '../../assets/3Score.png';
 import axios from "../../api/httpService";
-import {toast, ToastContainer} from "react-toastify"
+import {toast} from "react-toastify"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
